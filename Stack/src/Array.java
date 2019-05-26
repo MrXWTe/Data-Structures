@@ -49,7 +49,7 @@ public class Array<E> {
      * @param e 添加的元素
      */
     public void add(int index, E e){
-        if(index < 0 || index >= size)
+        if(index < 0 || index > size)
             throw new IllegalArgumentException("Added failed. Require index>0 and index < size");
 
         if(size == data.length)
@@ -152,7 +152,7 @@ public class Array<E> {
             throw new IllegalArgumentException("Added failed. Require index>0 and index < size");
         E ret = data[index];
 
-        for(int i = index; i<size; i++)
+        for(int i = index+1; i<size; i++)
             data[i-1] = data[i];
 
         size--;
