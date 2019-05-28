@@ -3,13 +3,15 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-        int opCount = 100000;
+        int opCount = 500000;
         ArrayQueue<Integer> arrayQueue = new ArrayQueue();
         System.out.println("ArrayQueue, Time:" + testQueue(arrayQueue, opCount) + "s");
 
         LoopQueue<Integer> loopQueue = new LoopQueue<>();
         System.out.println("LoopQueue, Time:" + testQueue(loopQueue, opCount) + "s");
 
+        LinkedListQueue<Integer> linkedListQueue = new LinkedListQueue<>();
+        System.out.println("LinkedListQueue, Time:" + testQueue(linkedListQueue, opCount) + "s");
     }
 
     /**
