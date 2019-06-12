@@ -16,6 +16,17 @@ public class MaxHeap<E extends Comparable<E>> {
     }
 
     /**
+     * 通过数组构造最大堆
+     * @param arr 数组
+     */
+    public MaxHeap(E[] arr){
+        data = new Array<>(arr);
+        for(int i = parent(arr.length - 1); i>=0; i--){
+            siftDown(i);
+        }
+    }
+
+    /**
      * 返回堆中元素个数
      * @return 个数
      */
@@ -100,5 +111,18 @@ public class MaxHeap<E extends Comparable<E>> {
             data.swap(k, j);
             k = j;
         }
+    }
+
+    /**
+     * 替换操作，替换堆顶元素以及传入参数
+     * @param e 传入参数
+     * @return 堆顶元素
+     */
+    public E replace(E e){
+        E ret = findMax();
+
+        data.set(0, e);
+        siftDown(0);
+        return ret;
     }
 }
